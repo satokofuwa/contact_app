@@ -1,14 +1,14 @@
 class ContactsController < ApplicationController
 
     def new
-      @contact=Contact
+      @contact=Contact.new
 
     end
 
     def create 
-      @contct=Contact(contact_params)
+      @contact=Contact.new(contact_params)
       if @contact.save
-        redirect new_contact_app_path,notice:"保存できました"
+        redirect_to new_contact_path,notice:"保存できました"
       else
         render :new
       end
